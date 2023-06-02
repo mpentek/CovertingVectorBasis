@@ -1,7 +1,10 @@
 import numpy as np
 
 '''
-Print from MainKratosStatic_RactionOut.py
+See the repository for more information: https://github.com/mpentek/CovertingVectorBasis/tree/main
+
+
+Print from MainKratosStatic_RactionOut.py -> Hypar0DegStruct
 1
 [2.9999999993, -2.9999999987, 4.999999999]
 [3](37911.2,-37912,20037.1)
@@ -84,8 +87,10 @@ for loc in locations:
     # the co-variant components are
     [P1, P2, P3] = [np.dot(orig_force, G1), np.dot(orig_force, G2), np.dot(orig_force, G3)]
     # these are the force 
+    print('Forces')
     print(P1, P2, P3)
     # these are the prestress values
+    print('Prestres')
     print(', '.join([str(p/a) for p,a in zip([P1, P2, P3], loc["areas"])]))
     print()
 
@@ -97,3 +102,28 @@ for loc in locations:
     # np.testing.assert_allclose(vec_res_current, vec_res_new)
     
     # print()
+    
+'''
+The results:
+
+Forces
+-73889.51109963686 54060.33610210658 54059.74731808234
+Prestres
+-37698730.15287595, 305425627.6955174, 305422301.23210365
+
+Forces
+-101473.49450019744 46336.930351203206 46335.37543069791
+Prestres
+-51772191.07152931, 261790566.95595032, 261781782.09433848
+
+Forces
+-73890.92462700642 54060.78001729857 54061.51599732882
+Prestres
+-37699451.3403094, 305428135.6909524, 305432293.7702193
+
+Forces
+-101472.36246645762 46334.9030942086 46336.45801471389
+Prestres
+-51771613.50329471, 261779113.5266023, 261787898.38821408
+
+'''
